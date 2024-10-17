@@ -35,7 +35,7 @@ export default function(links) {
         link = links[i], source = link.source, target = link.target;
         x = target.x + target.vx - source.x - source.vx || jiggle(random);
         y = target.y + target.vy - source.y - source.vy || jiggle(random);
-        l = Math.sqrt(x * x + y * y);
+        l = Math.hypot(x, y);
         l = (l - distances[i]) / l * alpha * strengths[i];
         x *= l, y *= l;
         target.vx -= x * (b = bias[i]);
